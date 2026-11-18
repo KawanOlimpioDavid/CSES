@@ -7,12 +7,13 @@ struct t_aresta{
     int dis;
     int x, y;
 };
-
+// para ordenar as arestas pelo peso (distancia aqui)
 bool comp(t_aresta a, t_aresta b){
     return a.dis < b.dis;
 }
 
 int m, n;
+// uma guarda as arestas e a outra so a arvore final
 t_aresta arestas[MAXM], mst[MAXM];
 int pai[MAXN], peso[MAXN], qnt[MAXN];
 
@@ -60,16 +61,17 @@ int main(){
             mst[++size] = arestas[i];
         }
     }
-
+    // se nao tem n-1 arestas, nao eh possivel deixar conexo
     if(size != n-1){
         cout << "IMPOSSIBLE\n";
         return 0;
     }
-
+    // para printar a mst
     // for(int i = 1; i < n; i++){
     //     cout << mst[i].x << " " << mast[y] << " " << mst[i].dis << endl;
     // }
 
+    // para pegar a soma total dos pesos
     long long ans = 0;
     for(int i = 1; i < n; i++){
         ans += mst[i].dis;

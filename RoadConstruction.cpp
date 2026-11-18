@@ -10,7 +10,7 @@ int find(int x){
     if(x == pai[x]) return x;
     return pai[x] = find(pai[x]);
 }
-
+// join booleano para verificar a uniao
 bool join(int x, int y){
     x = find(x);
     y = find(y);

@@ -1,4 +1,3 @@
-
 CXX = g++
 CXXFLAGS = -std=c++17 -O2 -Wall -Wextra
 
@@ -8,4 +7,4 @@ CXXFLAGS = -std=c++17 -O2 -Wall -Wextra
 .PHONY: clean
 
 clean:
-	rm -f BuildingRoads CountingRooms MessageRoute
+	rm -f $(basename $(wildcard *.cpp))
