@@ -8,7 +8,7 @@ int main() {
     lli n, ans = 1;
     cin >> n;
 
-    for(int i = 1; i<=n; i++){
+    for(int i = 1; i <= n; i++){
         ans = 2 * ans % mod;
     }
     cout << ans;

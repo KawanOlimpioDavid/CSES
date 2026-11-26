@@ -1,22 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define maxn 1000010
-#define mod 1000000007
-int n;
-long long int dp[maxn];
+const int MOD = 1e9 + 7;
 
-int main(){
+int n;
+long long dp[1000010];
+
+int main() {
     cin >> n;
-    dp[0] = 0;
-    dp[1] = 1;
-    dp[2] = 2;
-    dp[3] = 4;
-    dp[4] = 8;
-    dp[5] = 16;
-    dp[6] = 32;
-    for(int i = 7; i <= n; i++){
-        dp[i] = (dp[i-1] + dp[i-2] + dp[i-3] + dp[i-4] + dp[i-5] + dp[i-6]) % mod;
+
+    // pelo visto nao lancar um dado eh opcao
+    dp[0] = 1;
+
+    // transicao
+    // n bonitinho para cada numero
+    for (int i = 1; i <= n; i++) {
+        // faz a soma dos 6 casos anteriores
+        for (int j = 1; j <= 6; j++) {
+            if (i >= j) {
+                dp[i] = (dp[i] + dp[i - j]) % MOD;
+            }
+        }
     }
-    cout << dp[n];
+
+    cout << dp[n] << '\n';
 }

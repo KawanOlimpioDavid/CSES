@@ -61,7 +61,7 @@ void dfs(int u, int p){
 
 int dist(int u, int v){
     int w = lca(u, v);
-
+    // formula da distancia
     return nivel[u] + nivel[v] - 2 * nivel[w];
 }
 
